@@ -3,13 +3,6 @@
 #include <stdlib.h>
 #include "myfunc.h"
 
-int myfunc(int b) {
-    char *buffer = malloc(sizeof(char) * 1000);
-    buffer [0] = b + 4;
-    // здесь должен ругаться sonarcloud, т.к. утечка памяти
-    return buffer[0];
-}
-
 int val;
 
 int fibonachi(int num) {
@@ -32,7 +25,3 @@ int fibonachi(int num) {
     return next;
 }
 
-void printStdoutMessages() {
-    printf("This is a test message from myfunc.c\n");
-    printf("Do not disturb\n");
-}
