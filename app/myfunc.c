@@ -5,23 +5,18 @@
 
 int val;
 
-int fibonachi(int num) {
-    int prev = 1;
-    int next = 1;
+#include <stdio.h>
+#include <math.h>
 
-    if (num < 0)
-        return 0;
-
-    if (num <= 2)
-        return num;
-
-    int i = 2;
-    while (i < num) {
-        next += prev;
-        prev = next - prev;
-        i++;
+void quad_equation(double a, double b, double c, double *x1, double *x2) {
+    double discriminant = b * b - 4 * a * c;
+    if (discriminant < 0) {
+        *x1 = *x2 = NAN;
+    } else if (discriminant == 0) {
+        *x1 = *x2 = -b / (2 * a);
+    } else {
+        *x1 = (-b - sqrt(discriminant)) / (2 * a);
+        *x2 = (-b + sqrt(discriminant)) / (2 * a);
     }
-
-    return next;
 }
 

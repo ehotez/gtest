@@ -18,7 +18,7 @@ DEFINES += INPUTDIR=\\\"$$PWD/input/\\\"
 
 HEADERS +=     \
     ../app/myfunc.h \
-    fibonachi_test.h
+    quad_equation_test.h
 
 SOURCES +=     main.cpp \
     ../app/myfunc.c

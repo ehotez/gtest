@@ -1,4 +1,4 @@
-#include "fibonachi_test.h"
+#include "quad_equation_test.h"
 
 #include <gtest/gtest.h>
 
