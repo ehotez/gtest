@@ -12,7 +12,8 @@ jobs:
       - run: qmake
       - run: make
       - run: ./tests/tests
-
+      - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2
       - name: Coveralls
         run: coveralls -t ${{ secrets.coveralls_token }} --root . -E ".*external.*" -E ".*tests.*"
 
@@ -67,3 +68,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           sonar-scanner --define sonar.host.url="${{ env.SONAR_SERVER_URL }}" --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}"
+            
