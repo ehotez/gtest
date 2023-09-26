@@ -26,10 +26,10 @@ TEST(QuadEquationTest, OneRealRoot) {
 }
 
 TEST(QuadEquationTest, NoRealRoots) {
-    double a = 1.0, b = 2.0, c = 3.0, x1 = 0.0, x2 = 0.0;
+    double a = 1.0, b = 2.0, c = 3.0, x1 = -1.0, x2 = -1.0;
     quad_equation(a, b, c, &x1, &x2);
-    ASSERT_TRUE(_isnan(x1));
-    ASSERT_TRUE(_isnan(x2));
+    ASSERT_EQ(x1, -1.0);
+    ASSERT_EQ(x2, -1.0);
 }
 
 #endif // FIBONACHI_H
