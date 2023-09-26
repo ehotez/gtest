@@ -1,12 +1,7 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-#include "myfunc.h"
-
-int val;
-
-#include <stdio.h>
 #include <math.h>
+#include "myfunc.h"
 
 void quad_equation(double a, double b, double c, double *x1, double *x2) {
     double discriminant = b * b - 4 * a * c;
