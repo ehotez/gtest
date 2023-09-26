@@ -2,7 +2,6 @@
 #define FIBONACHI_H
 
 #include <gtest/gtest.h>
-
 #include <fcntl.h>
 #include <errno.h>
 #include <unistd.h>
@@ -26,10 +25,39 @@ TEST(QuadEquationTest, OneRealRoot) {
 }
 
 TEST(QuadEquationTest, NoRealRoots) {
-    double a = 1.0, b = 2.0, c = 3.0, x1 = -1.0, x2 = -1.0;
+    double a = 1.0, b = 2.0, c = 3.0, x1 = 0.0, x2 = 0.0;
     quad_equation(a, b, c, &x1, &x2);
     ASSERT_EQ(x1, -1.0);
     ASSERT_EQ(x2, -1.0);
 }
+
+TEST(QuadEquationTest, NegativeA) {
+    double a = -1.0, b = 2.0, c = 3.0, x1 = 0.0, x2 = 0.0;
+    quad_equation(a, b, c, &x1, &x2);
+    ASSERT_EQ(x1, 3.0);
+    ASSERT_EQ(x2, -1.0);
+}
+
+TEST(QuadEquationTest, ZeroA) {
+    double a = 0.0, b = 2.0, c = 3.0, x1 = 0.0, x2 = 0.0;
+    quad_equation(a, b, c, &x1, &x2);
+    ASSERT_EQ(x1, -1.0);
+    ASSERT_EQ(x2, -1.0);
+}
+
+TEST(QuadEquationTest, ZeroB) {
+    double a = 1.0, b = 0.0, c = 3.0, x1 = 0.0, x2 = 0.0;
+    quad_equation(a, b, c, &x1, &x2);
+    ASSERT_EQ(x1, -1.0);
+    ASSERT_EQ(x2, -1.0);
+}
+
+TEST(QuadEquationTest, ZeroC) {
+    double a = 1.0, b = 2.0, c = 0.0, x1 = 0.0, x2 = 0.0;
+    quad_equation(a, b, c, &x1, &x2);
+    ASSERT_EQ(x1, -2.0);
+    ASSERT_EQ(x2, 0.0);
+}
+
 
 #endif // FIBONACHI_H
