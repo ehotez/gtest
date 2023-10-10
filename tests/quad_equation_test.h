@@ -1,6 +1,7 @@
 #ifndef FIBONACHI_H
 #define FIBONACHI_H
 
+#include <cmath>
 #include <gtest/gtest.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -27,8 +28,8 @@ TEST(QuadEquationTest, OneRealRoot) {
 TEST(QuadEquationTest, NoRealRoots) {
     double a = 1.0, b = 2.0, c = 3.0, x1 = 0.0, x2 = 0.0;
     quad_equation(a, b, c, &x1, &x2);
-    ASSERT_EQ(x1, -1.0);
-    ASSERT_EQ(x2, -1.0);
+    ASSERT_EQ(x1, INT_MAX);
+    ASSERT_EQ(x2, INT_MAX);
 }
 
 TEST(QuadEquationTest, NegativeA) {
@@ -41,15 +42,15 @@ TEST(QuadEquationTest, NegativeA) {
 TEST(QuadEquationTest, ZeroA) {
     double a = 0.0, b = 2.0, c = 3.0, x1 = 0.0, x2 = 0.0;
     quad_equation(a, b, c, &x1, &x2);
-    ASSERT_EQ(x1, -1.0);
-    ASSERT_EQ(x2, -1.0);
+    ASSERT_EQ(x1, INT_MAX);
+    ASSERT_EQ(x2, INT_MAX);
 }
 
 TEST(QuadEquationTest, ZeroB) {
     double a = 1.0, b = 0.0, c = 3.0, x1 = 0.0, x2 = 0.0;
     quad_equation(a, b, c, &x1, &x2);
-    ASSERT_EQ(x1, -1.0);
-    ASSERT_EQ(x2, -1.0);
+    ASSERT_EQ(x1, INT_MAX);
+    ASSERT_EQ(x2, INT_MAX);
 }
 
 TEST(QuadEquationTest, ZeroC) {

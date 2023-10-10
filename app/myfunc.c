@@ -6,7 +6,7 @@
 void quad_equation(double a, double b, double c, double *x1, double *x2) {
     double discriminant = b * b - 4 * a * c;
     if (discriminant < 0 || a == 0) {
-        *x1 = *x2 = -1.0;
+        *x1 = *x2 = INT_MAX;
     } else if (discriminant == 0) {
         *x1 = *x2 = -b / (2 * a);
     } else {
