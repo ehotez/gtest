@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <limits.h>
 #include <unistd.h>
 
 extern "C" {
